@@ -2,6 +2,7 @@ package org.academiadecodigo.thunderstructs.controllers;
 
 
 import org.academiadecodigo.thunderstructs.Dto.LoginDto;
+import org.academiadecodigo.thunderstructs.Dto.RegisterDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -35,5 +36,16 @@ public class AccessController {
         return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
     }
 
+    @RequestMapping(method = RequestMethod.POST, path = "/register")
+    public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterDto registerDto, BindingResult bindingResult){
 
+        if(bindingResult.hasErrors()){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+
+
+
+        return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+    }
 }
