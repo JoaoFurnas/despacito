@@ -1,7 +1,7 @@
 package org.academiadecodigo.thunderstructs.controllers;
 
 
-import org.academiadecodigo.thunderstructs.AccessService;
+import org.academiadecodigo.thunderstructs.services.AccessService;
 import org.academiadecodigo.thunderstructs.Dto.LoginDto;
 import org.academiadecodigo.thunderstructs.Dto.RegisterDto;
 import org.academiadecodigo.thunderstructs.models.User;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/api/access")
 public class AccessController {
 
     private AccessService accessService;

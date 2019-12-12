@@ -40,7 +40,7 @@ public class DataSource {
         User user = new User();
         user.setUsername("bits");
         user.setName("Bitinha Pires");
-        user.setLocation(Location.TER_PV);
+        user.setLocation(0);
         user.setPassword("bitinha123");
         user.setWallet(2000.00);
         user.setEmail("bits@gmail.com");
@@ -49,7 +49,7 @@ public class DataSource {
         User user2 = new User();
         user2.setUsername("furnas");
         user2.setName("Joãao Furnas");
-        user2.setLocation(Location.TER_PV);
+        user2.setLocation(0);
         user2.setPassword("furnas123");
         user2.setWallet(2000.00);
         user2.setEmail("joaofurnas@gmail.com");
@@ -59,7 +59,7 @@ public class DataSource {
         battle.setUser1(user);
         battle.setUser2(user2);
         battle.setAddress("");
-        battle.setCity(Location.TER_PV);
+        battle.setLocation(0);
         battlesList.add(battle);
 
     }
