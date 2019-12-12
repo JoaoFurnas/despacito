@@ -14,17 +14,14 @@ public class User {
     private double wallet;
     private String description;
     private boolean dancer;
+
     public User(){
         id++;
-        this.userId =  this.id;
+        this.userId =  id;
     }
 
     public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        return userId;
     }
 
     public String getUsername() {

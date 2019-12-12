@@ -31,7 +31,6 @@ public class AccessService {
     }
 
     public User getUser(int id){
-
         for (User u : dataSource.getAllUsersList()) {
             if(u.getId() == id){
                 return u;
@@ -85,10 +84,6 @@ public class AccessService {
 
     public static void main(String[] args) {
 
-        AccessService accessService = new AccessService();
-
-
-        System.out.println(accessService.dataSource.getAllUsersList().size());
     }
 
 }
