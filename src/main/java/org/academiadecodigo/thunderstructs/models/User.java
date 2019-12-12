@@ -10,7 +10,7 @@ public class User {
     private String password;
 
     private String name;
-    private Location location;
+    private int location;
     private double wallet;
     private String description;
     private boolean dancer;
@@ -56,11 +56,11 @@ public class User {
         this.name = name;
     }
 
-    public Location getLocation() {
+    public int getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(int location) {
         this.location = location;
     }
 
