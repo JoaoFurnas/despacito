@@ -3,10 +3,12 @@ package org.academiadecodigo.thunderstructs;
 import org.academiadecodigo.thunderstructs.models.Battle;
 import org.academiadecodigo.thunderstructs.models.Location;
 import org.academiadecodigo.thunderstructs.models.User;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class DataSource {
 
     private List<User> usersList;
@@ -22,15 +24,15 @@ public class DataSource {
     }
 
 
-    public List getAllUsersList() {
+    public List<User> getAllUsersList() {
         return usersList;
     }
 
-    public List getBattlesList() {
+    public List<Battle> getBattlesList() {
         return battlesList;
     }
 
-    public List getActiveUsers() {
+    public List<User> getActiveUsers() {
         return activeUsers;
     }
 
@@ -61,6 +63,11 @@ public class DataSource {
         battlesList.add(battle);
 
     }
+
+    public void addActiveUser(User user){
+        activeUsers.add(user);
+    }
+
 }
 
 
