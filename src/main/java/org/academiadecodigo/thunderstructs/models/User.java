@@ -2,14 +2,22 @@ package org.academiadecodigo.thunderstructs.models;
 
 public class User {
 
-    private int id;
+    private static int id = 0;
+    private int userId;
     private String email;
+    private String username;
+
     private String password;
+
     private String name;
-    private String location;
+    private Location location;
     private double wallet;
     private String description;
     private boolean dancer;
+    public User(){
+        id++;
+        this.userId =  this.id;
+    }
 
     public int getId() {
         return id;
@@ -17,6 +25,14 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -43,11 +59,11 @@ public class User {
         this.name = name;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 

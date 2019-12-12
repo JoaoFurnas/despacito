@@ -4,7 +4,8 @@ import java.util.List;
 
 public class Battle {
 
-    private int id;
+    private static int id= 0;
+    private int userId;
     private User user1;
     private User user2;
     private String hour;
@@ -14,6 +15,11 @@ public class Battle {
     private String address;
     private Location city;
     private List<User> bettors;
+
+    public Battle(){
+        id++;
+        this.userId = id;
+    }
 
 
     public int getId() {
