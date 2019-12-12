@@ -1,5 +1,6 @@
-package org.academiadecodigo.thunderstructs;
+package org.academiadecodigo.thunderstructs.services;
 
+import org.academiadecodigo.thunderstructs.DataSource;
 import org.academiadecodigo.thunderstructs.Dto.LoginDto;
 import org.academiadecodigo.thunderstructs.Dto.RegisterDto;
 import org.academiadecodigo.thunderstructs.models.Battle;

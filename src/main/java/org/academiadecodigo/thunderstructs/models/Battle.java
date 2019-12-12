@@ -13,14 +13,23 @@ public class Battle {
     private int user1Votes;
     private int user2Votes;
     private String address;
-    private Location city;
+    private int location;
     private List<User> bettors;
+    private boolean active;
 
     public Battle(){
         id++;
         this.userId = id;
+        this.active = true;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     public int getId() {
         return id;
@@ -86,12 +95,12 @@ public class Battle {
         this.address = address;
     }
 
-    public Location getCity() {
-        return city;
+    public int getLocation() {
+        return location;
     }
 
-    public void setCity(Location city) {
-        this.city = city;
+    public void setLocation(int location) {
+        this.location = location;
     }
 
     public List<User> getBettors() {

@@ -1,14 +1,12 @@
 package org.academiadecodigo.thunderstructs.Dto;
 
-import org.academiadecodigo.thunderstructs.models.Location;
-
 public class RegisterDto {
 
     private String name;
     private String username;
     private String email;
     private String password;
-    private Location location;
+    private int location;
 
 
     public String getUsername() {
@@ -35,11 +33,11 @@ public class RegisterDto {
         this.password = password;
     }
 
-    public Location getLocation() {
+    public int getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(int location) {
         this.location = location;
     }
 

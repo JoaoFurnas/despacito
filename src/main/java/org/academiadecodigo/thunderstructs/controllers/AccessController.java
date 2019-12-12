@@ -1,7 +1,7 @@
 package org.academiadecodigo.thunderstructs.controllers;
 
 
-import org.academiadecodigo.thunderstructs.AccessService;
+import org.academiadecodigo.thunderstructs.services.AccessService;
 import org.academiadecodigo.thunderstructs.Dto.LoginDto;
 import org.academiadecodigo.thunderstructs.Dto.RegisterDto;
 import org.academiadecodigo.thunderstructs.models.Location;
@@ -17,7 +17,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/api/access")
 public class AccessController {
 
     private AccessService accessService;
