@@ -38,4 +38,9 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
+  <!-- liveTime of a Session-->
+  <session-config>
+    <session-timeout>15</session-timeout>
+  </session-config>
+
 </web-app>
