@@ -1,22 +1,23 @@
 package org.academiadecodigo.thunderstructs.controllers;
 
 
+import org.academiadecodigo.thunderstructs.AccessService;
 import org.academiadecodigo.thunderstructs.Dto.LoginDto;
 import org.academiadecodigo.thunderstructs.Dto.RegisterDto;
+import org.academiadecodigo.thunderstructs.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping(path = "/api")
 public class AccessController {
+
+    private AccessService accessService;
 
     @RequestMapping(method = RequestMethod.POST, path = "/login")
     public ResponseEntity<?> checkLogin(@Valid @RequestBody LoginDto loginDto, BindingResult bindingResult){
@@ -25,9 +26,7 @@ public class AccessController {
             return new ResponseEntity<>(loginDto,HttpStatus.BAD_REQUEST);
         }
 
-        LoginDto user = new LoginDto();
-        user.setEmail("deciomachado90@gmail.com");
-        user.setPassword("1234");
+        User user = accessService.getUser(1);
 
         if(loginDto.getEmail().equals(user.getEmail()) || loginDto.getPassword().equals(user.getPassword())){
             return new ResponseEntity<>(loginDto,HttpStatus.OK);
@@ -45,7 +44,18 @@ public class AccessController {
 
 
 
-
         return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+    }
+
+    @Autowired
+    public void setAccessService(AccessService accessService) {
+        this.accessService = accessService;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/{id}")
+    public ResponseEntity<User> getUsers(@PathVariable int id){
+
+
+        return new ResponseEntity<>(accessService.getUser(id),HttpStatus.OK);
     }
 }

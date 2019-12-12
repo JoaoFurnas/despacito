@@ -1,6 +1,7 @@
 package org.academiadecodigo.thunderstructs;
 
 import org.academiadecodigo.thunderstructs.Dto.LoginDto;
+import org.academiadecodigo.thunderstructs.Dto.RegisterDto;
 import org.academiadecodigo.thunderstructs.models.Battle;
 import org.academiadecodigo.thunderstructs.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class AccessService {
     }
 
     public User getUser(int id){
+
         for (User u : dataSource.getAllUsersList()) {
             if(u.getId() == id){
                 return u;
@@ -50,8 +52,8 @@ public class AccessService {
         User newUser = new User();
         newUser.setUsername(user.getUsername());
         newUser.setEmail(user.getEmail());
-        newUser.setPassword(user.getPassword);
-        newUser.setName(user.getName);
+        newUser.setPassword(user.getPassword());
+        newUser.setName(user.getName());
         newUser.setLocation(user.getLocation());
 
         dataSource.getAllUsersList().add(newUser);
@@ -83,6 +85,10 @@ public class AccessService {
 
     public static void main(String[] args) {
 
+        AccessService accessService = new AccessService();
+
+
+        System.out.println(accessService.dataSource.getAllUsersList().size());
     }
 
 }
