@@ -64,6 +64,15 @@ public class AccessController {
         return new ResponseEntity<>(locations,HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/search/battles")
+    public ResponseEntity<List<String>> searchByLocation(){
+
+        List<String> locations = new ArrayList<>();
+
+
+        return new ResponseEntity<>(locations,HttpStatus.OK);
+    }
+
 
    /* @RequestMapping(method = RequestMethod.GET, path = "/user")
     public ResponseEntity<RegisterDto> getRegisterDto(){
