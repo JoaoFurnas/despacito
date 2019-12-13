@@ -1,6 +1,7 @@
 package org.academiadecodigo.thunderstructs.controllers;
 
 
+import org.academiadecodigo.thunderstructs.models.User;
 import org.academiadecodigo.thunderstructs.services.AccessService;
 import org.academiadecodigo.thunderstructs.Dto.LoginDto;
 import org.academiadecodigo.thunderstructs.Dto.RegisterDto;
@@ -8,10 +9,15 @@ import org.academiadecodigo.thunderstructs.models.Location;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.net.HttpCookie;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,15 +30,18 @@ public class AccessController {
     private HttpSession session;
 
     @RequestMapping(method = RequestMethod.POST, path = "/login")
-    public ResponseEntity<LoginDto> checkLogin(@Valid @RequestBody LoginDto loginDto, BindingResult bindingResult){
+    public ResponseEntity<Cookie> checkLogin(HttpServletResponse response, @Valid @RequestBody LoginDto loginDto, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
-            return new ResponseEntity<>(loginDto,HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         if(accessService.authenticate(loginDto)){
 
-            return new ResponseEntity<>(loginDto,HttpStatus.OK);
+            Cookie cookie = new Cookie("user",loginDto.getEmail());
+            response.addCookie(cookie);
+
+            return new ResponseEntity<>(HttpStatus.OK);
         }
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -64,7 +73,7 @@ public class AccessController {
         return new ResponseEntity<>(locations,HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/search/battles")
+    @RequestMapping(method = RequestMethod.GET, path = "/search")
     public ResponseEntity<List<String>> searchByLocation(){
 
         List<String> locations = new ArrayList<>();
@@ -74,7 +83,7 @@ public class AccessController {
     }
 
 
-   /* @RequestMapping(method = RequestMethod.GET, path = "/user")
+   @RequestMapping(method = RequestMethod.GET, path = "/user")
     public ResponseEntity<RegisterDto> getRegisterDto(){
 
         RegisterDto registerDto = new RegisterDto();
@@ -82,7 +91,7 @@ public class AccessController {
         registerDto.setUsername("asd");
         registerDto.setEmail("asd");
         registerDto.setPassword("asd");
-        registerDto.setLocation(Location.HOR);
+        registerDto.setLocation(1);
 
         return new ResponseEntity<>(registerDto,HttpStatus.OK);
     }
@@ -92,7 +101,7 @@ public class AccessController {
 
 
         return new ResponseEntity<>(accessService.getUser(id),HttpStatus.OK);
-    }*/
+    }
 
     @Autowired
     public void setAccessService(AccessService accessService) {
