@@ -43,16 +43,20 @@ public class DataSource {
         user.setLocation(0);
         user.setPassword("bitinha123");
         user.setWallet(2000.00);
+        user.setDescription("Aquela miuda gira de Tavira");
         user.setEmail("bits@gmail.com");
+        user.setDancer(true);
         usersList.add(user);
 
         User user2 = new User();
         user2.setUsername("furnas");
-        user2.setName("Joãao Furnas");
+        user2.setName("João Furnas");
         user2.setLocation(0);
         user2.setPassword("furnas123");
         user2.setWallet(2000.00);
         user2.setEmail("joaofurnas@gmail.com");
+        user2.setDescription("Aquele gajo grande de São Miguel");
+        user2.setDancer(true);
         usersList.add(user2);
 
         Battle battle = new Battle();
