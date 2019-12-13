@@ -65,6 +65,11 @@ public class BattleService {
 
         User user = dataSource.getAllUsersList().get(uid);
 
+        if(user.getWallet()<0){
+            user.setWallet(0);
+            return;
+        }
+
         for (Battle b : dataSource.getBattlesList()) {
             if (b.isActive() && b.getId() == id) {
                 b.addViewer(user);
@@ -77,6 +82,11 @@ public class BattleService {
     public void addBettor(int uid, int bid) {
 
         User user = dataSource.getAllUsersList().get(uid);
+
+        if(user.getWallet()<0){
+            user.setWallet(0);
+            return;
+        }
         user.setWallet(user.getWallet()-10);
 
         for (Battle b : dataSource.getBattlesList()) {
