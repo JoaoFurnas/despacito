@@ -38,7 +38,7 @@ public class AccessController {
 
         if(accessService.authenticate(loginDto)){
 
-            Cookie cookie = new Cookie("user",loginDto.getEmail());
+            Cookie cookie = new Cookie("email",loginDto.getEmail());
             response.addCookie(cookie);
 
             return new ResponseEntity<>(HttpStatus.OK);

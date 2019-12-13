@@ -59,12 +59,44 @@ public class DataSource {
         user2.setDancer(true);
         usersList.add(user2);
 
+        User user3 = new User();
+        user2.setUsername("hugo");
+        user2.setName("Hugo Almeida");
+        user2.setLocation(0);
+        user2.setPassword("hugo123");
+        user2.setWallet(2000.00);
+        user2.setEmail("hugoantonio@gmail.com");
+        user2.setDescription("Aquele totó dos jogos");
+        user2.setDancer(true);
+        usersList.add(user3);
+
+        User user4 = new User();
+        user2.setUsername("decio");
+        user2.setName("Décio Flaviano");
+        user2.setLocation(0);
+        user2.setPassword("decioF");
+        user2.setWallet(5000.00);
+        user2.setEmail("decidoflaviano@gmail.com");
+        user2.setDescription("You can call me Elon Musk");
+        user2.setDancer(true);
+        usersList.add(user4);
+
+
+
         Battle battle = new Battle();
         battle.setUser1(user);
         battle.setUser2(user2);
         battle.setAddress("");
         battle.setLocation(0);
         battlesList.add(battle);
+
+
+        Battle battle1 = new Battle();
+        battle.setUser1(user3);
+        battle.setUser2(user3);
+        battle.setAddress("");
+        battle.setLocation(1);
+        battlesList.add(battle1);
 
     }
 
