@@ -15,6 +15,9 @@ public class Battle {
     private String address;
     private int location;
     private List<User> bettors;
+    private int numBettors;
+    private List<User> viewers;
+    private int numViewers;
     private boolean active;
 
     public Battle(){
@@ -105,5 +108,30 @@ public class Battle {
 
     public void setBettors(List<User> bettors) {
         this.bettors = bettors;
+    }
+
+    public void addBettors(User user){
+        this.bettors.add(user);
+        this.numBettors++;
+    }
+    public List<User> getViewers() {
+        return viewers;
+    }
+
+    public void setViewers(List<User> viewers) {
+        this.viewers = viewers;
+    }
+
+    public void addViewer(User user){
+        this.viewers.add(user);
+        this.numViewers++;
+    }
+
+    public int getNumBettors() {
+        return numBettors;
+    }
+
+    public int getNumViewers() {
+        return numViewers;
     }
 }

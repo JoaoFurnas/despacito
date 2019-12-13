@@ -2,6 +2,7 @@ package org.academiadecodigo.thunderstructs.controllers;
 
 
 import org.academiadecodigo.thunderstructs.models.Battle;
+import org.academiadecodigo.thunderstructs.models.Location;
 import org.academiadecodigo.thunderstructs.services.BattleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,4 +58,25 @@ public class BattleController {
         return new ResponseEntity<>(battle, HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/local/getLocal/{local}")
+    public ResponseEntity<String> getLocationById(@PathVariable int local){
+
+
+
+        if(Location.values()[local].getLocation() == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(Location.values()[local].getLocation(), HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, path = "/local/addBettor/{uid}/battle/{bid}")
+    public ResponseEntity<String> addBettor(@PathVariable int uid,@PathVariable int bid){
+
+        battleService.addBettor(uid,bid);
+
+
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
