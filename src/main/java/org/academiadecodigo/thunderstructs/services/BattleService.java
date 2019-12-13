@@ -14,6 +14,7 @@ import java.util.List;
 public class BattleService {
 
     private DataSource dataSource;
+    private AccessService accessService;
 
     @Autowired
     public void setDataSource(DataSource dataSource) {
@@ -60,7 +61,9 @@ public class BattleService {
     }
 
     //add viewer to battle
-    public void addViewer(User user, int id) {
+    public void addViewer(int uid, int id) {
+
+        User user = dataSource.getAllUsersList().get(uid);
 
         for (Battle b : dataSource.getBattlesList()) {
             if (b.isActive() && b.getId() == id) {
@@ -74,6 +77,7 @@ public class BattleService {
     public void addBettor(int uid, int bid) {
 
         User user = dataSource.getAllUsersList().get(uid);
+        user.setWallet(user.getWallet()-10);
 
         for (Battle b : dataSource.getBattlesList()) {
             if (b.isActive() && b.getId() == bid) {
@@ -81,5 +85,30 @@ public class BattleService {
             }
 
         }
+    }
+
+    public List<Battle> getMyBets(int id) {
+
+        List<Battle> list = new ArrayList<>();
+
+        User user = accessService.getUser(id);
+
+        for (int i=0;i<dataSource.getBattlesList().size();i++) {
+            if (dataSource.getBattlesList().get(i).isActive()) {
+               if(dataSource.getBattlesList().get(i).getViewers().contains(user)) {
+                    list.add(dataSource.getBattlesList().get(i));
+                }
+                if(dataSource.getBattlesList().get(i).getBettors().contains(user)) {
+                    list.add(dataSource.getBattlesList().get(i));
+                }
+            }
+        }
+
+        return list;
+    }
+
+    @Autowired
+    public void setAccessService(AccessService accessService) {
+        this.accessService = accessService;
     }
 }

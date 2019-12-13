@@ -1,5 +1,6 @@
 package org.academiadecodigo.thunderstructs.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Battle {
@@ -24,6 +25,8 @@ public class Battle {
         id++;
         this.userId = id;
         this.active = true;
+        viewers = new ArrayList<>();
+        bettors = new ArrayList<>();
     }
 
     public boolean isActive() {

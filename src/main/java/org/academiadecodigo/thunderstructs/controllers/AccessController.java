@@ -9,7 +9,6 @@ import org.academiadecodigo.thunderstructs.models.Location;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +16,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.net.HttpCookie;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +28,7 @@ public class AccessController {
     private HttpSession session;
 
     @RequestMapping(method = RequestMethod.POST, path = "/login")
-    public ResponseEntity<Cookie> checkLogin(HttpServletResponse response, @Valid @RequestBody LoginDto loginDto, BindingResult bindingResult){
+    public ResponseEntity<Integer> checkLogin(HttpServletResponse response, @Valid @RequestBody LoginDto loginDto, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -38,10 +36,10 @@ public class AccessController {
 
         if(accessService.authenticate(loginDto)){
 
-            Cookie cookie = new Cookie("email",loginDto.getEmail());
-            response.addCookie(cookie);
+//            Cookie cookie = new Cookie("email",loginDto.getEmail());
+//            response.addCookie(cookie);
 
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(accessService.getUser(loginDto.getEmail()),HttpStatus.OK);
         }
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

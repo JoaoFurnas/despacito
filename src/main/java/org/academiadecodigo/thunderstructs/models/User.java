@@ -14,6 +14,7 @@ public class User {
     private double wallet;
     private String description;
     private boolean dancer;
+    private String locationToString;
 
     public User(){
         id++;
@@ -61,6 +62,7 @@ public class User {
     }
 
     public void setLocation(int location) {
+        setLocationToString(location);
         this.location = location;
     }
 
@@ -86,5 +88,14 @@ public class User {
 
     public void setDancer(boolean dancer) {
         this.dancer = dancer;
+    }
+
+
+    public void setLocationToString(int id) {
+        this.locationToString = Location.values()[id].getLocation();
+    }
+
+    public String getLocationToString() {
+        return locationToString;
     }
 }

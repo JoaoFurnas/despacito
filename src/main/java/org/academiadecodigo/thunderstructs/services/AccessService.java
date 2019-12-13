@@ -83,6 +83,18 @@ public class AccessService {
         return false;
     }
 
+    public int getUser(String email){
+        int id = 0;
+
+        for (User u : dataSource.getAllUsersList()) {
+            if(u.getEmail().equals(email)){
+                id = u.getId();
+            }
+        }
+
+        return id;
+    }
+
     public static void main(String[] args) {
 
     }

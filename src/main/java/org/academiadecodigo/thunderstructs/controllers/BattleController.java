@@ -46,6 +46,19 @@ public class BattleController {
         return new ResponseEntity<>(battle, HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/{user}/joined")
+    public ResponseEntity<List<Battle>> getMyBets(@PathVariable int user){
+
+        List<Battle> battleList = battleService.getMyBets(user);
+
+        /*if(battle == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }*/
+
+        return new ResponseEntity<>(battleList, HttpStatus.OK);
+    }
+
+
     @RequestMapping(method = RequestMethod.GET, path = "/local/{local}")
     public ResponseEntity<List<Battle>> getUsersActiveBattles(@PathVariable int local){
 
@@ -70,10 +83,20 @@ public class BattleController {
         return new ResponseEntity<>(Location.values()[local].getLocation(), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/local/addBettor/{uid}/battle/{bid}")
-    public ResponseEntity<String> addBettor(@PathVariable int uid,@PathVariable int bid){
+    @RequestMapping(method = RequestMethod.GET, path = "/addBettor/{uid}/battle/{bid}")
+    public ResponseEntity<?> addBettor(@PathVariable int uid,@PathVariable int bid){
 
-        battleService.addBettor(uid,bid);
+        battleService.addBettor(uid -1 ,bid);
+
+
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/addViewer/{vid}/battle/{bid}")
+    public ResponseEntity<?> addViewer(@PathVariable int vid,@PathVariable int bid){
+
+        battleService.addViewer(vid -1,bid);
 
 
 
