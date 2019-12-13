@@ -1,6 +1,7 @@
 package org.academiadecodigo.thunderstructs.controllers;
 
 
+import org.academiadecodigo.thunderstructs.Dto.SessionDto;
 import org.academiadecodigo.thunderstructs.models.User;
 import org.academiadecodigo.thunderstructs.services.AccessService;
 import org.academiadecodigo.thunderstructs.Dto.LoginDto;
@@ -28,7 +29,7 @@ public class AccessController {
     private HttpSession session;
 
     @RequestMapping(method = RequestMethod.POST, path = "/login")
-    public ResponseEntity<Integer> checkLogin(HttpServletResponse response, @Valid @RequestBody LoginDto loginDto, BindingResult bindingResult){
+    public ResponseEntity<SessionDto> checkLogin(HttpServletResponse response, @Valid @RequestBody LoginDto loginDto, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -38,8 +39,10 @@ public class AccessController {
 
 //            Cookie cookie = new Cookie("email",loginDto.getEmail());
 //            response.addCookie(cookie);
+            SessionDto sessionDto = new SessionDto();
+            sessionDto.setId(accessService.getUser(loginDto.getEmail()));
 
-            return new ResponseEntity<>(accessService.getUser(loginDto.getEmail()),HttpStatus.OK);
+            return new ResponseEntity<>(sessionDto,HttpStatus.OK);
         }
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
