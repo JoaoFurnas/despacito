@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="app.css">
+  <link rel="stylesheet" type="text/css" href="dashboard.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <script src="app.js"></script>
+  <title>Main menu</title>
+</head>
+
+<body>
+  <div class="wrapping-div">
+
+    <div class="sidebar-container">
+      <div class="sidebar-logo">
+        <img src="user.png" id="icon" alt="User Icon" />
+
+      </div>
+      <ul class="sidebar-navigation">
+        <li class="header">Menu</li>
+        <li>
+          <a id="profile">
+            <i class="fa fa-home profile" aria-hidden="true"></i> Profile
+          </a>
+        </li>
+        <li>
+          <a id="overview">
+            <i class="fa fa-tachometer listbattles" aria-hidden="true"></i>Overview
+          </a>
+        </li>
+        <li>
+          <a id="listbattles">
+            <i class="fa fa-home profile" aria-hidden="true"></i> Find battles
+          </a>
+        </li>
+        <li>
+          <a id="listdancers">
+            <i class="fa fa-users" aria-hidden="true"></i> Find dancers
+          </a>
+        </li>
+        <li>
+          <a id="my-battles">
+            <i class="fa fa-cog" aria-hidden="true"></i> My battles
+          </a>
+        </li>
+        <li>
+          <a id="">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> My bets
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="container">
+
+      <div class="overview" style="margin-top: 20px">
+
+        <div class="card border-primary mb-3">
+          <div class="card-header">Next battles near me</div>
+          <div class="card-body text-primary">
+            <table id="scheduledBattles" class="table">
+              <tr>
+                <th>Dancer #1</th>
+                <th>Dancer #2</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Join</th>
+                <th>Bet</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card border-primary mb-3">
+          <div class="card-header">My Bets</div>
+          <div class="card-body text-primary">
+            <table id="my-battles-table" class="table">
+              <tr>
+                  <th>Dancer #1</th>
+                  <th>Dancer #2</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Where</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+          <div class="card-header">Wallet</div>
+          <div class="card-body text-primary">
+            <h6 class="card-title">Balance:</h6>
+            <p class="card-text" id="balance"><span>€</span></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="profileView" style="margin-top: 20px">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <img src="user.png" id="pic"
+                  alt="User Icon" /></div>
+
+              <div class="col-sm-4">
+                <h2 id="name-label"></h2>
+                <p>
+                  <label>Username:</label>
+                  <span id="username-label"></span>
+                  <p>
+                    <label>Email:</label>
+                    <span id="email-label"></span>
+                    <p>
+                      <label>Area:</label>
+                      <span id="location-label"></span>
+                      <p>
+                        <label>Availabe for dancing:</label>
+                        <span id="dancer-label"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="find-dancers">
+      </div>
+
+      <div class="find-battles">
+      </div>
+
+      <div class="my-battles">
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

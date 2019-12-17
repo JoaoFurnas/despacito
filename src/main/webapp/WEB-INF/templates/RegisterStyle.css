@@ -1,0 +1,83 @@
+
+body, html{
+background-image: url('http://www.uncutmedia.co.za/wp-content/uploads/2017/05/vibe.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 40%;
+max-height: 10px;
+font-family: 'Oxygen', sans-serif;
+	
+}
+
+.container{
+    height: 100%;
+    align-content: center;
+}
+
+.cols-sm-2{
+    margin: 60px;
+    
+}
+
+.form-group{
+    margin-bottom: 40px;
+}
+
+label{
+	margin-bottom: 65px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 12px;
+    padding-top: 3px;
+}
+
+.main-login{
+    margin: 600px;
+    background-color: #fff;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.form-control {
+    height: auto!important;
+    padding: 15px 12px !important;
+    opacity: 100%;
+}
+.input-group {
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+}
+#button {
+   
+    margin-top: 50px;
+    padding: 12px 12px;
+    color: #666;
+    
+}
+.main-center{
+ 	margin-top: 40px;
+ 	margin: 40 auto;
+ 	max-width: 400px;
+    padding: 20px 40px;
+	background:#e7e3dfa2;
+	    color: rgb(8, 8, 12);
+    text-shadow: none;
+	-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+   -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+   box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+
+}
+span.input-group-addon i {
+    color: #2b2e33;
+    font-size: 18px;
+    margin: 15px;
+}
+
+h5{
+    font-size: 25;
+}

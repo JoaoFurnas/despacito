@@ -1,0 +1,149 @@
+.sidebar-container {
+    width: 220px;
+    height: 100vh;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #2574A9;
+    color: rgba(255, 255, 255, 0.925);
+  }
+  
+  .content-container {
+    padding-top: 20px;
+  }
+  
+  .sidebar-logo {
+    padding: 5px 30px 10px 30px;
+    font-size: 20px;
+    background-color: #2574A9;
+    height: 180px;
+  }
+  
+  .sidebar-navigation {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    position: relative;
+  }
+  
+  .sidebar-navigation li {
+    background-image: "http://www.uncutmedia.co.za/wp-content/uploads/2017/05/vibe.jpg(1 MB)";
+    background-color: transparent;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    line-height: 20px;
+  }
+  
+  .sidebar-navigation li a {
+    padding: 10px 15px 10px 30px;
+    display: block;
+    color: rgba(255, 255, 255, 0.63);
+  }
+  
+  .sidebar-navigation li .fa {
+    margin-right: 10px;
+  }
+  
+  .sidebar-navigation li a:active,
+  .sidebar-navigation li a:hover,
+  .sidebar-navigation li a:focus {
+    text-decoration: none;
+    outline: none;
+    background-color: rgb(122, 168, 199);
+  }
+  
+  .sidebar-navigation li::before {
+    background-color: rgb(122, 168, 199);
+    position: absolute;
+    content: '';
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    width: 3px;
+    z-index: -1;
+  }
+  
+  .sidebar-navigation li:hover::before {
+    width: 100%;
+
+  }
+  
+  .sidebar-navigation .header {
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color:#2574A9;
+    padding: 10px 15px 10px 30px;
+  }
+  
+  .sidebar-navigation .header::before {
+    background-color: transparent;
+  }
+  
+  .content-container {
+    padding-left: 220px;
+  }
+  
+ 
+  .wrapping-div {
+      display: flex;
+  }
+
+  
+  table.center{
+      margin-right: auto;
+      margin-left: auto;
+      
+  }
+
+ 
+  h2{
+      text-align: center;
+  }
+  /*background-image: url('https://files.slack.com/files-pri/T0J8THHCZ-FRMGDPNUU/slack-imgs.com.jpg');*/
+  body, html {
+    background-image: url(background.jpeg);
+    
+
+  }
+
+
+#icon {
+    width: 100%;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-radius: 100%;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+}
+
+.profileView{
+  opacity: 0.7;
+  color: black;
+  
+}
+
+.find-dancers{
+  opacity: 0.7;
+  color: black;
+}
+
+.find-battles{
+  opacity: 0.7;
+  color: black;
+}
+
+.table{
+  background: white;
+  opacity: 0.7;
+  color: black;
+  -webkit-text-stroke-color: black;
+  -moz-text-decoration-color: black;
+}
+#pic{
+  width: 60%;
+}

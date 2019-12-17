@@ -1,0 +1,41 @@
+/* Made with love by Mutiullah Samim*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('http://www.uncutmedia.co.za/wp-content/uploads/2017/05/vibe.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 103%;
+font-family: 'Numans', sans-serif;
+}
+
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: 500px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color:rgba(209, 207, 202, 0.753) !important;
+align-items: center
+}
+
+
+
+
+.card-footer{
+    color: blue;
+    align-items: centers
+
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
